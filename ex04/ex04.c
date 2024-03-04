@@ -4,7 +4,7 @@
 #define TAM_VETOR 10
 
 int main() {
-  int somatorio = 0, qtd;
+  int somatorio = 0, qtd, min, max;
   int numeros[TAM_VETOR];
   double media = 0.0, somatorioQuadrado = 0.0, desvioPadrao;
 
@@ -39,6 +39,18 @@ int main() {
 
   desvioPadrao = sqrt(somatorioQuadrado / qtd);
   printf("O desvio padrão é %lf\n\n", desvioPadrao);
+
+  min = numeros[0];
+  max = numeros[0];
+  for (int i = 0; i < qtd; ++i) {
+    if (numeros[i] < min) {
+      min = numeros[i];
+    } else if (numeros[i] > max) {
+      max = numeros[i];
+    }
+  }
+  printf("O menor número no vetor é %d\n", min);
+  printf("O maior número no vetor é %d\n", max);
 
   return 0;
 }
