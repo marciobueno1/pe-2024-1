@@ -9,18 +9,36 @@
         "-g",
         "${file}",
         "-o",
-        "${fileDirname}/${fileBasenameNoExtension}"
+        "${fileDirname}/${fileBasenameNoExtension}",
+        "-lm"
       ],
       "options": {
         "cwd": "${fileDirname}"
       },
-      "problemMatcher": [
-        "$gcc"
-      ],
+      "problemMatcher": ["$gcc"],
       "group": {
         "kind": "build",
         "isDefault": true
       },
+      "detail": "Tarefa gerada pelo Depurador."
+    },
+    {
+      "type": "cppbuild",
+      "label": "C/C++: gcc-9 arquivo de build ativo",
+      "command": "/usr/bin/gcc-9",
+      "args": [
+        "-fdiagnostics-color=always",
+        "-g",
+        "${file}",
+        "-o",
+        "${fileDirname}/${fileBasenameNoExtension}",
+        "-lm"
+      ],
+      "options": {
+        "cwd": "${fileDirname}"
+      },
+      "problemMatcher": ["$gcc"],
+      "group": "build",
       "detail": "Tarefa gerada pelo Depurador."
     }
   ],
