@@ -17,7 +17,7 @@ void multiplicarMatrizes(
 int main()
 {
   int linhas1, colunas1, linhas2, colunas2;
-  int a[LINHAS][COLUNAS], b[LINHAS][COLUNAS];
+  int a[LINHAS][COLUNAS], b[LINHAS][COLUNAS], c[LINHAS][COLUNAS];
 
   srand(time(NULL));
 
@@ -36,22 +36,29 @@ int main()
 
   do
   {
-    printf("Qual a quantidade de linhas da primeira matriz? (valor entre 1 e %d): ", LINHAS);
-    scanf("%d", &linhas1);
+    printf("Qual a quantidade de linhas da segunda matriz? (valor entre 1 e %d): ", LINHAS);
+    scanf("%d", &linhas2);
   } while (linhas2 < 1 || linhas2 > LINHAS);
 
   do {
-    printf("Qual a quantidade de colunas da primeira matriz? (valor entre 1 e %d): ", COLUNAS);
+    printf("Qual a quantidade de colunas da segunda matriz? (valor entre 1 e %d): ", COLUNAS);
     scanf("%d", &colunas2);
   } while (colunas2 < 1 || colunas2 > COLUNAS);
 
-  preencherMatrizAleatoria(b, linhas1, colunas1);
+  preencherMatrizAleatoria(b, linhas2, colunas2);
 
   printf("\nMATRIZ A\n");
   imprimirMatriz(a, linhas1, colunas1);
   printf("\nMATRIZ B\n");
-  imprimirMatriz(b, linhas1, colunas1);
+  imprimirMatriz(b, linhas2, colunas2);
 
+  multiplicarMatrizes(
+      a, linhas1, colunas1,
+      b, linhas2, colunas2,
+      c);
+
+  printf("\nMATRIZ C\n");
+  imprimirMatriz(c, linhas1, colunas2);
 
   return 0;
 }
@@ -96,7 +103,9 @@ void multiplicarMatrizes(
 
   for (int i = 0; i < linhas1; ++i) {
     for (int j = 0; j < colunas2; ++j) {
-      for (int k = 0; i < colunas1; ++i) {
+      c[i][j] = 0;
+      for (int k = 0; k < colunas1; ++k) {
+        c[i][j] += a[i][k] * b[k][j];
       }
     }
   }
