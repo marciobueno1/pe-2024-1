@@ -17,7 +17,7 @@ int main() {
 
   printf("\n\nIMPRESSÃO:\n");
   for (int i = 0; i < QTD_STRINGS; i++) {
-    printf("Código %i: %s\n", i+1, codigos[i]);
+    printf("Código %d: %s\n", i+1, codigos[i]);
   }
 
   return 0;
