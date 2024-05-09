@@ -6,15 +6,13 @@
 #define QTD_STRINGS 5
 #define QTD_CARACTERES 10
 
+void lerString(char *str, int maxTam);
+
 int main() {
   char codigos[QTD_STRINGS][QTD_CARACTERES];
   for (int i = 0; i < QTD_STRINGS; i++) {
     printf("Informe o código %i: ", i+1);
-    fgets(codigos[i], QTD_CARACTERES, stdin);
-    int tam = strlen(codigos[i]);
-    if (codigos[i][tam - 1] == '\n') {
-      codigos[i][tam - 1] = '\0';
-    }
+    lerString(codigos[i], QTD_CARACTERES);
   }
 
   printf("\n\nIMPRESSÃO:\n");
@@ -23,4 +21,12 @@ int main() {
   }
 
   return 0;
+}
+
+void lerString(char *str, int maxTam) {
+    fgets(str, maxTam, stdin);
+    int tam = strlen(str);
+    if (str[tam - 1] == '\n') {
+      str[tam - 1] = '\0';
+    }
 }
