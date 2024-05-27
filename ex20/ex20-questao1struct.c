@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <string.h>
 
 #define TAM_NOME 3
 #define QTD_ESTADOS 2
